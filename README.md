@@ -8,3 +8,6 @@
 
 [andrew-lin / Fangedan](https://github.com/Fangedan) | Project Manager
 [https://codermerlin.com/users/andrewm-lin/Digital%20Portfolio/index.html](https://codermerlin.com/users/andrewm-lin/Digital%20Portfolio/index.html)
+
+[jake-podewils / jakepodewils](https://github.com/jakepodewils) | Software Engineer/Release Engineer
+[https://codermerlin.com/users/jake-podewils/Digital%20Portfolio/index.html](https://codermerlin.com/users/jake-podewils/Digital%20Portfolio/index.html)
