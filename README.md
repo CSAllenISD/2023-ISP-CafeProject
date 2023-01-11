@@ -2,7 +2,7 @@
 
 ## 2023-ISPs CafeProject Task Link:
 
-[https://github.com/users/CSAllenISD/projects/1/views/1?filterQuery=isp%3A%22Cafe+Project%22](https://github.com/users/CSAllenISD/projects/1/views/1?filterQuery=isp%3A%22Cafe+Project%22)
+[https://github.com/users/CSAllenISD/projects/1/views/47?layout=board&filterQuery=isp%3A%22Cafe+Project%22](https://github.com/users/CSAllenISD/projects/1/views/47?layout=board&filterQuery=isp%3A%22Cafe+Project%22)
 
 ## Project Members:
 
