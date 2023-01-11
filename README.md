@@ -11,3 +11,6 @@
 
 [jake-podewils / jakepodewils](https://github.com/jakepodewils) | Software Engineer/Release Engineer
 [https://codermerlin.com/users/jake-podewils/Digital%20Portfolio/index.html](https://codermerlin.com/users/jake-podewils/Digital%20Portfolio/index.html)
+
+[sri-nagasai-siva-paladugu / saip9](https://github.com/saip9) | Product Manager
+[https://codermerlin.com/users/sri-nagasai-siva-paladugu/Digital%20Portfolio/index.html](https://codermerlin.com/users/sri-nagasai-siva-paladugu/Digital%20Portfolio/index.html)
