@@ -1,0 +1,5 @@
+Here are a list of some problems that our ISP might have along the way
+
+We might not be able to include all of these restauraunts in the future, as this might not allow us to become an MVP.
+
+As well as the restaraunt selection, we might not be able to include the schoolpay option, as this might be a little too complicated for an MVP. We might need to resort to classic payment methods, such as credit card, or maybe even allowing them to pay with their ID when they grab their food.
