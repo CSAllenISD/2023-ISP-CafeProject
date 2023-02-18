@@ -1,4 +1,4 @@
-
+//code given to you when you start Expo
 
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
   },
 });
 
-
+//work in progress login feature
+//still doing research to understand what some of these functions do
 
 /*
 import React from 'react';
