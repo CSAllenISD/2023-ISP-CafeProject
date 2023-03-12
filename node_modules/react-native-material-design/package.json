@@ -1,0 +1,37 @@
+{
+  "name": "react-native-material-design",
+  "version": "0.3.7",
+  "description": "React Native Material Design Components",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint ./lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/react-native-material-design/react-native-material-design"
+  },
+  "keywords": [
+    "react-native",
+    "material",
+    "design",
+    "ui",
+    "components",
+    "react-component",
+    "android"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/react-native-material-design/react-native-material-design/issues"
+  },
+  "homepage": "https://github.com/react-native-material-design/react-native-material-design",
+  "dependencies": {
+    "react-native-material-design-styles": "git+https://github.com/react-native-material-design/react-native-material-design-styles.git",
+    "react-native-vector-icons": "^2.0.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^4.1.6",
+    "eslint": "^1.6.0",
+    "eslint-plugin-react": "^3.5.1"
+  }
+}

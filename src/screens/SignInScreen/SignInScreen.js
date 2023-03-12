@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { View, Text, Image, StyleSheet, useWindowDimensions } from 'react-native';
-import Logo from '../../../assets/images/legoImage.png';
+import Logo from '../../../assets/images/projectLogo.png';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 
