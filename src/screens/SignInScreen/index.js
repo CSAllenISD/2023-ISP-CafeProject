@@ -1,1 +1,1 @@
-export { default } from './MenuScreen';
+export { default } from './MenuScreen.js';

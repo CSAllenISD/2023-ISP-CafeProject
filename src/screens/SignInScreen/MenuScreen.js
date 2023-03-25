@@ -1,31 +1,35 @@
 import React from 'react';
 import  {Text, View, StyleSheet, Image} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const Menu = () => {
+function MenuScreen() {
     return (
         <View style = {styles.body}>
-            <Text style = {styles.header}>Menu</Text>
-            <Text style = {styles.food}> ENTREE</Text>
-            <Image
-            style = {styles.image}
-            source={require('../../../assets/images/chicken_burger.jpg')}
-            />
-                <Text style = {styles.description}> Chicken Sandwich</Text>
-        </View>
+        <Text style = {styles.food}> ENTREE</Text>
+        <Image
+        style = {styles.image}
+        source={require('../../../assets/images/chicken_burger.jpg')}
+        />
+            <Text style = {styles.description}> Chicken Sandwich</Text>
+    </View>
     );
-};
+  }
 
 
+const Stack = createNativeStackNavigator();
+function header() {
+    return (
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Menu" component={MenuScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
+  }
+  
 
-
-const styles = StyleSheet.create({
-    header: {
-        fontSize:50,
-        fontWeight: "bold",
-        textAlign: "center",
-        textDecorationLine: "underline",
-
-    },     
+const styles = StyleSheet.create({   
     image: {
         height: "50%",
         width: "100%",
@@ -65,4 +69,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default Menu
+export default header
