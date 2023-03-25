@@ -1,0 +1,183 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.RollOutRight = exports.RollOutLeft = exports.RollInRight = exports.RollInLeft = void 0;
+
+var _animationBuilder = require("../animationBuilder");
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+class RollInLeft extends _animationBuilder.ComplexAnimationBuilder {
+  constructor() {
+    super(...arguments);
+
+    _defineProperty(this, "build", () => {
+      const delayFunction = this.getDelayFunction();
+      const [animation, config] = this.getAnimationAndConfig();
+      const delay = this.getDelay();
+      const callback = this.callbackV;
+      const initialValues = this.initialValues;
+      return values => {
+        'worklet';
+
+        return {
+          animations: {
+            transform: [{
+              translateX: delayFunction(delay, animation(0), config)
+            }, {
+              rotate: delayFunction(delay, animation('0deg', config))
+            }]
+          },
+          initialValues: {
+            transform: [{
+              translateX: -values.windowWidth
+            }, {
+              rotate: '-180deg'
+            }],
+            ...initialValues
+          },
+          callback: callback
+        };
+      };
+    });
+  }
+
+  static createInstance() {
+    return new RollInLeft();
+  }
+
+}
+
+exports.RollInLeft = RollInLeft;
+
+class RollInRight extends _animationBuilder.ComplexAnimationBuilder {
+  constructor() {
+    super(...arguments);
+
+    _defineProperty(this, "build", () => {
+      const delayFunction = this.getDelayFunction();
+      const [animation, config] = this.getAnimationAndConfig();
+      const delay = this.getDelay();
+      const callback = this.callbackV;
+      const initialValues = this.initialValues;
+      return values => {
+        'worklet';
+
+        return {
+          animations: {
+            transform: [{
+              translateX: delayFunction(delay, animation(0, config))
+            }, {
+              rotate: delayFunction(delay, animation('0deg', config))
+            }]
+          },
+          initialValues: {
+            transform: [{
+              translateX: values.windowWidth
+            }, {
+              rotate: '180deg'
+            }],
+            ...initialValues
+          },
+          callback: callback
+        };
+      };
+    });
+  }
+
+  static createInstance() {
+    return new RollInRight();
+  }
+
+}
+
+exports.RollInRight = RollInRight;
+
+class RollOutLeft extends _animationBuilder.ComplexAnimationBuilder {
+  constructor() {
+    super(...arguments);
+
+    _defineProperty(this, "build", () => {
+      const delayFunction = this.getDelayFunction();
+      const [animation, config] = this.getAnimationAndConfig();
+      const delay = this.getDelay();
+      const callback = this.callbackV;
+      const initialValues = this.initialValues;
+      return values => {
+        'worklet';
+
+        return {
+          animations: {
+            transform: [{
+              translateX: delayFunction(delay, animation(-values.windowWidth, config))
+            }, {
+              rotate: delayFunction(delay, animation('-180deg', config))
+            }]
+          },
+          initialValues: {
+            transform: [{
+              translateX: 0
+            }, {
+              rotate: '0deg'
+            }],
+            ...initialValues
+          },
+          callback: callback
+        };
+      };
+    });
+  }
+
+  static createInstance() {
+    return new RollOutLeft();
+  }
+
+}
+
+exports.RollOutLeft = RollOutLeft;
+
+class RollOutRight extends _animationBuilder.ComplexAnimationBuilder {
+  constructor() {
+    super(...arguments);
+
+    _defineProperty(this, "build", () => {
+      const delayFunction = this.getDelayFunction();
+      const [animation, config] = this.getAnimationAndConfig();
+      const delay = this.getDelay();
+      const callback = this.callbackV;
+      const initialValues = this.initialValues;
+      return values => {
+        'worklet';
+
+        return {
+          animations: {
+            transform: [{
+              translateX: delayFunction(delay, animation(values.windowWidth, config))
+            }, {
+              rotate: delayFunction(delay, animation('180deg', config))
+            }]
+          },
+          initialValues: {
+            transform: [{
+              translateX: 0
+            }, {
+              rotate: '0deg'
+            }],
+            ...initialValues
+          },
+          callback: callback
+        };
+      };
+    });
+  }
+
+  static createInstance() {
+    return new RollOutRight();
+  }
+
+}
+
+exports.RollOutRight = RollOutRight;
+//# sourceMappingURL=Roll.js.map
