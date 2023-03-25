@@ -3,7 +3,8 @@ import { View, Text, Image, StyleSheet, useWindowDimensions, Button } from 'reac
 import Logo from '../../../assets/images/projectLogo.png';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
-
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const SignInScreen = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -51,5 +52,16 @@ const styles = StyleSheet.create({
         maxHeight: 200,
     },
 });
+const Stack = createNativeStackNavigator();
+function App() {
+    return (
+      <NavigationContainer>
 
-export default SignInScreen
+        <Stack.Navigator>
+          <Stack.Screen name="The Cafe Project" component={SignInScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
+  }
+
+export default App
