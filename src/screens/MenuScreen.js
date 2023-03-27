@@ -1,17 +1,29 @@
-import React from 'react';
-import  {Text, View, StyleSheet, Image, Alert} from 'react-native';
+import React, {useState} from 'react';
+import  {Text, View, StyleSheet, Image, Alert, Button} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useFonts, Mynerve_400Regular } from '@expo-google-fonts/mynerve';
 import CustomInput from '../components/CustomInput';
 import CustomButton from '../components/CustomButton/CustomButton';
-const addToCart =() => {
-  Alert.alert('Item Added Sucessfully', '', [
+import Dialog from "react-native-dialog";
 
-    {text: 'OK'},
-  ]);
-}
+
+
 const Menu = () => {
+  
+  const [visible, setVisible] = useState(false);
+  const addToCart = () => {
+    setVisible(true);
+  };
+  const handleCancel = () => {
+    setVisible(false);
+  };
+
+  const handleAdd = () => {
+ 
+    setVisible(false);
+  };
+
   let [fontsLoaded] = useFonts({
     Mynerve_400Regular,
   });
@@ -19,6 +31,7 @@ const Menu = () => {
   if (!fontsLoaded) {
     return null;
   }
+
   return (
     
       <View style = {styles.body}>
@@ -30,7 +43,19 @@ const Menu = () => {
               <Text style = {styles.description}> Chicken Sandwich</Text>
               <Text style = {styles.price}> Price: $2.75</Text>
              <CustomButton text="Add to Cart" onPress={addToCart} />
-      </View>
+      <Dialog.Container visible={visible}>
+        <Dialog.Title>Item Quantity</Dialog.Title>
+        <Dialog.Description>
+          How many do you want to add?
+        </Dialog.Description>
+        <Dialog.Input>
+        1
+        </Dialog.Input>
+        <Dialog.Button label="Cancel" onPress={handleCancel} />
+        <Dialog.Button label="Add" onPress={handleAdd} />
+      </Dialog.Container>
+    </View>
+   
   );
 };
 
