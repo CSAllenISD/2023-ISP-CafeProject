@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import  {Text, View, StyleSheet, Image, Alert, Button} from 'react-native';
+import  {Text, View, StyleSheet, Image, Alert, Button, ScrollView, SafeAreaView} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useFonts, Mynerve_400Regular } from '@expo-google-fonts/mynerve';
@@ -33,7 +33,7 @@ const Menu = () => {
   }
 
   return (
-    
+   
       <View style = {styles.body}>
           <Text style = {styles.food}> ENTREE</Text>
           <Image
@@ -54,7 +54,12 @@ const Menu = () => {
         <Dialog.Button label="Cancel" onPress={handleCancel} />
         <Dialog.Button label="Add" onPress={handleAdd} />
       </Dialog.Container>
+
+
+
+      
     </View>
+
    
   );
 };
@@ -74,15 +79,14 @@ const styles = StyleSheet.create({
       height: "50%",
       width: "100%",
       resizeMode: "cover",
-      borderBottomLeftRadius: 50,
-      borderBottomRightRadius: 50,
-
+      borderBottomLeftRadius: 10,
+      borderBottomRightRadius: 10,
+      borderTopRightRadius: 10,
+      borderTopLeftRadius: 10,
   },
 
   body: {
-      borderWidth: 10,
-      borderBottomLeftRadius: 20,
-      borderBottomRightRadius: 20,
+ 
       borderColor: "gold",
       backgroundColor: "gold",
   },
