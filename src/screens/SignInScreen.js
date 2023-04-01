@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { View, Text, Image, StyleSheet, useWindowDimensions, Button } from 'react-native';
+import { View, Text, Image, StyleSheet, useWindowDimensions, Button, Alert } from 'react-native';
 import Logo from '../../assets/images/projectLogo.png';
 import CustomInput from '../components/CustomInput';
 import CustomButton from '../components/CustomButton/CustomButton';
@@ -14,7 +14,15 @@ export default function SignInScreen({ navigation }) {
   const {height} = useWindowDimensions();
 
   const onSignInPressed =() => {
-      console.warn("Sign In");
+    if (username.trim().length !== 0 && (password.trim().length !==0)) {
+        navigation.navigate("Menu")
+      } else {
+        Alert.alert('Invalid username or password', '', [
+
+            {text: 'OK'},
+          ]);
+      }
+   
   }
 
   return (
@@ -37,7 +45,7 @@ export default function SignInScreen({ navigation }) {
            secureTextEntry={true}
            />
 
-           <CustomButton text="Sign In" onPress={() => navigation.navigate("Menu")} />
+    <CustomButton text="Sign In" onPress={onSignInPressed} />
       </View>
   )
 }
@@ -53,4 +61,3 @@ const styles = StyleSheet.create({
       maxHeight: 200,
   },
 });
-
