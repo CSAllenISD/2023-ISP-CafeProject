@@ -6,10 +6,10 @@ import { useFonts, Mynerve_400Regular } from '@expo-google-fonts/mynerve';
 import CustomInput from '../components/CustomInput';
 import CustomButton from '../components/CustomButton/CustomButton';
 import Dialog from "react-native-dialog";
+import * as SQLite from 'expo-sqlite';
 
 
-
-const Menu = () => {
+export default function MenuScreen({ navigation }) {
 
   const [visible, setVisible] = useState(false);
   const addToCart = () => {
@@ -123,4 +123,3 @@ const styles = StyleSheet.create({
 });
 
 
-export default Menu
