@@ -3,3 +3,12 @@ Here are a list of some problems that our ISP might have along the way
 We might not be able to include all of these restauraunts in the future, as this might not allow us to become an MVP.
 
 As well as the restaraunt selection, we might not be able to include the schoolpay option, as this might be a little too complicated for an MVP. We might need to resort to classic payment methods, such as credit card, or maybe even allowing them to pay with their ID when they grab their food.
+
+4/6/2023 (Andrew Lin):
+I am currently searching through the entirety of all the files we have so far on the app, yet I cannot seem to find the reason why whenever I type "npm start" and scan the QR code on my IOS device, it successfully "runs" yet on my phone nothing happens.
+I have tried several variations of running the app, yet I cannot seem to achieve the run as seen in our Webex Spaces groupchat; every instance my phone immediately shuts down ExpoGo, so I am reasonably confused.
+My educated guess is that the code we have so far is tailored, even excusively, I might confer, for only Android devices as I have a few reasons why I would belive so:
+The QR code we utilize to run the app, though IOS Camera App friendly, nontheless takes you to the ExpoGo application, which as I mentioned before immediately aborts after completing the build.
+Even though it recognizes that I am using an IOS device, it still primarily runs suited towards Android devices: "iOS Running app on Android".
+Another error I got was the following (whilst utilizing an iOS device): "No Android connected device found, and no emulators could be started automatically." As this message states, it would require my to further download another emulator onto my iOS device to run, which is a relatively large problem.
+These were my findings for definite bugs and problems of importance that we must fix.
