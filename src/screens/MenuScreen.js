@@ -10,7 +10,7 @@ import Dialog from "react-native-dialog";
 
 
 const Menu = () => {
-  
+
   const [visible, setVisible] = useState(false);
   const addToCart = () => {
     setVisible(true);

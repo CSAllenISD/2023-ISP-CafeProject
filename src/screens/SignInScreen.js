@@ -6,6 +6,17 @@ import CustomButton from '../components/CustomButton/CustomButton';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
+import * as SQLite from 'expo-sqlite';
+const db = SQLite.openDatabase(
+  {
+      name: 'CafeProject',
+      location: 'default',
+  },
+  () => { },
+  error => { console.log(error) }
+);
+
+
 export default function SignInScreen({ navigation }) {
 
   const [username, setUsername] = useState('');
