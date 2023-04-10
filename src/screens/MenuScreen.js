@@ -6,35 +6,26 @@ import { useFonts, Mynerve_400Regular } from '@expo-google-fonts/mynerve';
 import CustomInput from '../components/CustomInput';
 import CustomButton from '../components/CustomButton/CustomButton';
 import Dialog from "react-native-dialog";
-import * as SQLite from 'expo-sqlite';
-
-
 export default function MenuScreen({ navigation }) {
-
-  const [visible, setVisible] = useState(false);
-  const addToCart = () => {
-    setVisible(true);
-  };
-  const handleCancel = () => {
-    setVisible(false);
-  };
-
-  const handleAdd = () => {
- 
-    setVisible(false);
-  };
+  
 
   let [fontsLoaded] = useFonts({
     Mynerve_400Regular,
   });
-
   if (!fontsLoaded) {
     return null;
   }
+  const onCartPressed =() => {
+    navigation.navigate("Checkout")
+
+
+  }
 
   return (
-   
+
       <View style = {styles.body}>
+            <CustomButton text="Go to Checkout" onPress={onCartPressed} />
+
           <Text style = {styles.food}> ENTREE</Text>
           <Image
           style = {styles.image}
@@ -42,38 +33,21 @@ export default function MenuScreen({ navigation }) {
           />
               <Text style = {styles.description}> Chicken Sandwich</Text>
               <Text style = {styles.price}> Price: $2.75</Text>
-             <CustomButton text="Add to Cart" onPress={addToCart} />
-      <Dialog.Container visible={visible}>
-        <Dialog.Title>Item Quantity</Dialog.Title>
-        <Dialog.Description>
-          How many do you want to add?
-        </Dialog.Description>
-        <Dialog.Input>
-        1
-        </Dialog.Input>
-        <Dialog.Button label="Cancel" onPress={handleCancel} />
-        <Dialog.Button label="Add" onPress={handleAdd} />
-      </Dialog.Container>
+              <Text style = {styles.price}> Item #: 100 </Text>
 
 
-
-      
+     
     </View>
 
-   
+
   );
 };
-
-
-
-
 const styles = StyleSheet.create({
   header: {
       fontSize:50,
       fontWeight: "bold",
       textAlign: "center",
       textDecorationLine: "underline",
-
   },     
   image: {
       height: "50%",
@@ -86,11 +60,10 @@ const styles = StyleSheet.create({
   },
 
   body: {
- 
+
       borderColor: "gold",
       backgroundColor: "gold",
   },
-
   food: {
   color: "red",
   fontWeight: "500",
@@ -109,7 +82,6 @@ const styles = StyleSheet.create({
       textAlign: "center",
       padding: 20,
       },
-
       price: {
         color: "black",
         fontStyle: "italic",
@@ -119,7 +91,4 @@ const styles = StyleSheet.create({
         textAlign: "center",
         padding: 10,
         }
-
 });
-
-
