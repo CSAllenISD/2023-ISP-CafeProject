@@ -24,8 +24,6 @@ export default function MenuScreen({ navigation }) {
   return (
 
       <View style = {styles.body}>
-  //PUT SCROLL VIEW HERE
-  //try nested scroll view (android)
             <CustomButton text="Go to Checkout" onPress={onCartPressed} />
 
           <Text style = {styles.food}> ENTREE</Text>
@@ -37,8 +35,8 @@ export default function MenuScreen({ navigation }) {
               <Text style = {styles.price}> Price: $2.75</Text>
               <Text style = {styles.price}> Item #: 100 </Text>
 
-//SCROLL VIEW END HERE
-//nested scroll view (android)
+
+     
     </View>
 
 
