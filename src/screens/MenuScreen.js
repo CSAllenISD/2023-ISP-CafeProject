@@ -6,6 +6,7 @@ import { useFonts, Mynerve_400Regular } from '@expo-google-fonts/mynerve';
 import CustomInput from '../components/CustomInput';
 import CustomButton from '../components/CustomButton/CustomButton';
 import Dialog from "react-native-dialog";
+
 export default function MenuScreen({ navigation }) {
   
 
@@ -17,31 +18,40 @@ export default function MenuScreen({ navigation }) {
   }
   const onCartPressed =() => {
     navigation.navigate("Checkout")
-
-
   }
 
+  //const Flex = () => {
   return (
 
-      <View style = {styles.body}>
-            <CustomButton text="Go to Checkout" onPress={onCartPressed} />
+    //<SafeAreaView style={styles.container}>
+      //<ScrollView style={styles.container}>
+        //<View
+        //style = {[
+          //styles.container,
+          //{
+            //flexDirection: 'column',
+          //},
+        //]}>
+          //<View style={{flex: 1, backgroundColor: 'clear'}} />
+        <View style={styles.container}>
+          <CustomButton text="Go to Checkout" onPress={onCartPressed} />
+            <Text style = {styles.food}> ENTREE</Text>
+            <Image
+            style = {styles.image}
+            source={require('../../assets/images/chicken_burger.jpg')}
+            />
+            <Text style = {styles.description}> Chicken Sandwich</Text>
+            <Text style = {styles.price}> Price: $2.75</Text>
+            <Text style = {styles.price}> Item #: 100 </Text> 
 
-          <Text style = {styles.food}> ENTREE</Text>
-          <Image
-          style = {styles.image}
-          source={require('../../assets/images/chicken_burger.jpg')}
-          />
-              <Text style = {styles.description}> Chicken Sandwich</Text>
-              <Text style = {styles.price}> Price: $2.75</Text>
-              <Text style = {styles.price}> Item #: 100 </Text>
-
-
-     
-    </View>
-
+        </View>
+      //</ScrollView>
+    //</SafeAreaView>
 
   );
+  //}
 };
+
 const styles = StyleSheet.create({
   header: {
       fontSize:50,
@@ -90,5 +100,8 @@ const styles = StyleSheet.create({
         fontSize: 20,
         textAlign: "center",
         padding: 10,
-        }
+        },
+  //container: {
+    //flex: 1,
+  //},
 });
