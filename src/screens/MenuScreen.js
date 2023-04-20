@@ -22,18 +22,11 @@ export default function MenuScreen({ navigation }) {
 
   //const Flex = () => {
   return (
-
-    //<SafeAreaView style={styles.container}>
-      //<ScrollView style={styles.container}>
-        //<View
-        //style = {[
-          //styles.container,
-          //{
-            //flexDirection: 'column',
-          //},
-        //]}>
-          //<View style={{flex: 1, backgroundColor: 'clear'}} />
-        <View style={styles.container}>
+    <View style={styles.body}>
+     <ScrollView 
+     style={styles.main}
+     contentContainerStyle={{flexGrow:1, paddingBottom: 800}}>
+     
           <CustomButton text="Go to Checkout" onPress={onCartPressed} />
             <Text style = {styles.food}> ENTREE</Text>
             <Image
@@ -44,15 +37,29 @@ export default function MenuScreen({ navigation }) {
             <Text style = {styles.price}> Price: $2.75</Text>
             <Text style = {styles.price}> Item #: 100 </Text> 
 
-        </View>
-      //</ScrollView>
-    //</SafeAreaView>
 
+            <Image
+            style = {styles.image}
+            source={require('../../assets/images/chicken_tenders.jpg')}
+            />
+            <Text style = {styles.description}> Homestyle Chicken Tenders</Text>
+            <Text style = {styles.price}> Price: $2.85</Text>
+            <Text style = {styles.price}> Item #: 101 </Text> 
+
+
+
+            </ScrollView>        
+            </View>
+      
+ 
   );
-  //}
+  
 };
 
 const styles = StyleSheet.create({
+ main: {
+  flex: 1,
+ },
   header: {
       fontSize:50,
       fontWeight: "bold",
@@ -60,7 +67,7 @@ const styles = StyleSheet.create({
       textDecorationLine: "underline",
   },     
   image: {
-      height: "50%",
+      height: "75%",
       width: "100%",
       resizeMode: "cover",
       borderBottomLeftRadius: 10,
@@ -73,6 +80,7 @@ const styles = StyleSheet.create({
 
       borderColor: "gold",
       backgroundColor: "gold",
+      flex: 1,
   },
   food: {
   color: "red",
@@ -101,7 +109,5 @@ const styles = StyleSheet.create({
         textAlign: "center",
         padding: 10,
         },
-  //container: {
-    //flex: 1,
-  //},
+ 
 });
