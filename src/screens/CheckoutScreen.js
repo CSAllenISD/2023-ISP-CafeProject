@@ -14,7 +14,8 @@ export default function CartScreen({ navigation }) {
      
       useEffect(() => {
         db.transaction(tx => {
-          tx.executeSql('CREATE TABLE IF NOT EXISTS items (id INTEGER PRIMARY KEY AUTOINCREMENT, item TEXT, price TEXT)')
+          tx.executeSql('CREATE TABLE IF NOT EXISTS items (id INTEGER PRIMARY KEY AUTOINCREMENT, number INTEGER, item TEXT, price TEXT)')
+      
         });
     
         db.transaction(tx => {
@@ -38,13 +39,13 @@ export default function CartScreen({ navigation }) {
                 </View>
         );
       }
-      if (currentItem == "100") {
-        return (
-            <View>
-            <Text>Burger</Text>
-            </View>
-        )
-      }
+ //     if (currentItem == "100") {
+   //     return (
+     //       <View>
+       //     <Text>Burger</Text>
+         //   </View>
+       // )
+     // }
 
    
   
@@ -54,8 +55,9 @@ export default function CartScreen({ navigation }) {
 
 
       const addItem = () => {
+       if (currentItem == "100") {
         db.transaction(tx => {
-          tx.executeSql('INSERT INTO items (item) values (?)', [currentItem],
+          tx.executeSql('INSERT INTO items (number, item, price) values (100,"Burger","$2.75")', [currentItem],
             (txObj, resultSet) => {
               let existingItems = [...items];
            
@@ -69,6 +71,7 @@ export default function CartScreen({ navigation }) {
             (txObj, error) => console.log(error)
           );
         });
+     }
         
       }
 
@@ -92,17 +95,30 @@ export default function CartScreen({ navigation }) {
       
       
       const showItems = () => {
-        return items.map((item, index) => {
+        return items.map((item, index)  => {
           return (
-            <View key={index} style={styles.row}>
-              <Text>{item.item}</Text>
+            <View key={item} style={styles.row}>
+             
+              <Text>Item : {item.item}</Text>
+  
               <Button title='Delete' onPress={() => deleteItem(item.id)} />
      
             </View>
           );
         });
       };
-    
+
+ 
+      const showPrice = () => {
+        return items.map((price, index)  => {
+          return (
+            <View key={price} style={styles.row}>
+              <Text>Price : {price.price}</Text>
+     
+            </View>
+          );
+        });
+      };
 
 
       
@@ -115,6 +131,7 @@ export default function CartScreen({ navigation }) {
             <Button title="Add Item" onPress={addItem} />
             <Button title="Refresh" onPress={refreshItems} />
       {showItems()}
+      {showPrice()}
         <StatusBar style="auto" />
         </View>
     
