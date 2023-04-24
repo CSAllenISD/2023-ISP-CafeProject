@@ -25,7 +25,7 @@ export default function MenuScreen({ navigation }) {
     <View style={styles.body}>
      <ScrollView 
      style={styles.main}
-     contentContainerStyle={{flexGrow:1, paddingBottom: 800}}>
+     contentContainerStyle={{flexGrow:1, paddingBottom: 5000}}>
      
           <CustomButton text="Go to Checkout" onPress={onCartPressed} />
             <Text style = {styles.food}> ENTREE</Text>
@@ -35,7 +35,16 @@ export default function MenuScreen({ navigation }) {
             />
             <Text style = {styles.description}> Chicken Sandwich</Text>
             <Text style = {styles.price}> Price: $2.75</Text>
-            <Text style = {styles.price}> Item #: 100 </Text> 
+            <Text style = {styles.price}> Item #: 1 </Text> 
+
+
+            <Image
+            style = {styles.image}
+            source={require('../../assets/images/spicyChickenwhich.png')}
+            />
+            <Text style = {styles.description}> Spicy Chicken Sandwich</Text>
+            <Text style = {styles.price}> Price: $2.75</Text>
+            <Text style = {styles.price}> Item #: 2 </Text> 
 
 
             <Image
@@ -44,14 +53,33 @@ export default function MenuScreen({ navigation }) {
             />
             <Text style = {styles.description}> Homestyle Chicken Tenders</Text>
             <Text style = {styles.price}> Price: $2.85</Text>
-            <Text style = {styles.price}> Item #: 101 </Text> 
+            <Text style = {styles.price}> Item #: 3 </Text> 
 
+
+            
+            <Image
+            style = {styles.image}
+            source={require('../../assets/images/chickenTenderCombo.png')}
+            />
+            <Text style = {styles.description}> Chicken Tender Combo</Text>
+            <Text style = {styles.price}> Price: $4.75</Text>
+            <Text style = {styles.price}> Item #: 4 </Text> 
+
+
+            <Image
+            style = {styles.image}
+            source={require('../../assets/images/chickenSandwichCombo.png')}
+            />
+            <Text style = {styles.description}> Chicken Sandwich Combo</Text>
+            <Text style = {styles.price}> Price: $4.50</Text>
+            <Text style = {styles.price}> Item #: 5 </Text> 
+
+
+            <Text style = {styles.food}> Sides</Text>
 
 
             </ScrollView>        
             </View>
-      
- 
   );
   
 };
@@ -67,8 +95,10 @@ const styles = StyleSheet.create({
       textDecorationLine: "underline",
   },     
   image: {
-      height: "75%",
+      height: "25%",
       width: "100%",
+      //maxWidth: "200",
+      //maxHeight: "200",
       resizeMode: "cover",
       borderBottomLeftRadius: 10,
       borderBottomRightRadius: 10,
