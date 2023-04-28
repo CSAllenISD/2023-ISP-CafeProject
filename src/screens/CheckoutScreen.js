@@ -57,7 +57,7 @@ export default function CartScreen({ navigation }) {
       const addItem = () => {
        if (currentItem == "100") {
         db.transaction(tx => {
-          tx.executeSql('INSERT INTO items (number, item, price) values (100,"Burger","$2.75")', [currentItem],
+          tx.executeSql('INSERT INTO items (number, item, price) values (?,?,?)', [ "100", "Burger", "$2.75"],
             (txObj, resultSet) => {
               let existingItems = [...items];
            
