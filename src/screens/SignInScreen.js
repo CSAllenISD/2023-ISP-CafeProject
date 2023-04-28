@@ -44,7 +44,30 @@ export default function SignInScreen({ navigation }) {
 
   const onSignInPressed =() => {
     if (username.trim().length !== 0 && (password.trim().length !==0)) {
-        navigation.navigate("Menu")
+      db.transaction((tx) => {
+        tx.executeSql('SELECT * FROM login WHERE username = ? and password = ?', [username, password], (tx, results) => {
+            console.log("Query completed");
+          //'IF EXISTS(SELECT * FROM login WHERE username = "Lin" and password = "Lin")',
+          //'BEGIN',
+          //'INSERT INTO login (username, password) VALUES (?,?)',
+          //'END',
+          //'SELECT * FROM login WHERE username = "Lin" and password = "Lin"',
+          //'INSERT INTO login (username, password) VALUES (?,?)',
+          //[newUsername, newPassword],
+          //(tx, results) => {
+            //console.log("completed");
+            //console.log('Accounts', results.rowsAffected);
+            //if (results.rowsAffected > 0) {
+            navigation.navigate("Menu")
+            //}
+            //else {
+              //Alert.alert('no');
+          //}
+          }
+          
+        );
+        });
+        
       } else {
         Alert.alert('Invalid username or password', '', [
 
