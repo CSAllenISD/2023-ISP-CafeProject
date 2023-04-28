@@ -54,6 +54,41 @@ export default function SignInScreen({ navigation }) {
 
   }
 
+  const onSignUpPressed =() => {
+    db.transaction(tx => {
+    tx.executeSql(
+      'INSERT INTO login (username, password) VALUES (?,?)',
+      [newUsername, newPassword],
+      (tx, results) => {
+        console.log('Accounts', results.rowsAffected);
+        if (results.rowsAffected > 0) {
+          Alert.alert('Successfully created an account');
+        } else Alert.alert('Failed to create an account');
+      }
+    );
+    });
+    viewUser() ;
+}
+
+const viewUser = () => {
+ 
+  db.transaction((tx) => {
+    tx.executeSql(
+      'SELECT * FROM login',
+      [],
+      (tx, results) => {
+        var temp = [];
+        for (let i = 0; i < results.rows.length; ++i)
+          temp.push(results.rows.item(i));
+        console.log(temp);
+      }
+    );
+  });
+
+}
+
+  
+
   return (
       <View style={styles.root}>
           <Image
@@ -85,7 +120,7 @@ export default function SignInScreen({ navigation }) {
            />
 
     <CustomButton text="Sign In" onPress={onSignInPressed} />
-    <CustomButton text="Sign Up" onPress={onSignInPressed} />
+    <CustomButton text="Sign Up" onPress={onSignUpPressed} />
       </View>
   )
 }
