@@ -42,11 +42,29 @@ export default function SignInScreen({ navigation }) {
       );
     }
 
-  const onSignInPressed =() => {
+  /*const onSignInPressed =() => {
     if (username.trim().length !== 0 && (password.trim().length !==0)) {
+      const getCount = new Promise(function(resolve, reject) {
+        var countList = [] ;
+        let db = SQLite.openDatabase({name: 'test.db', createFromLocation : "~example.db", location: 'Library'}, false,false);
       db.transaction((tx) => {
-        tx.executeSql('SELECT * FROM login WHERE username = ? and password = ?', [username, password], (tx, results) => {
-            console.log("Query completed");
+        tx.executeSql('SELECT COUNT() FROM login WHERE username = ? AND password = ?', [username, password], (tx, results) => {
+          console.log(results);
+          var len = results.rows.length;
+        for (let i = 0; i < len; i++) {
+            let row = results.rows.item(i); 
+            employeeList.push(row.name);        
+        }
+        db.closeDatabase();
+
+        // resolve promise
+        resolve(employeeList)
+        });
+          //Alert.alert(String(results));
+          //print(results)
+          //let resultingArray = results.array
+          //if (countList.length > 0) {
+            //console.log("Query completed");
           //'IF EXISTS(SELECT * FROM login WHERE username = "Lin" and password = "Lin")',
           //'BEGIN',
           //'INSERT INTO login (username, password) VALUES (?,?)',
@@ -58,24 +76,74 @@ export default function SignInScreen({ navigation }) {
             //console.log("completed");
             //console.log('Accounts', results.rowsAffected);
             //if (results.rowsAffected > 0) {
-            navigation.navigate("Menu")
+           // navigation.navigate("Menu") }
             //}
             //else {
-              //Alert.alert('no');
-          //}
-          }
+              //Alert.alert('Username or Password is not registered.');
+            //}
+      });
+
+          getCount.then(data => {
+            this.setState({
+                count:countList
+            })
+          })
+      });
+        if (countList.length > 0) {
+          navigation.navigate("Menu") 
+        }
+        else
+        {
+          Alert.alert('Username or Password is not registered.');
+        }
           
-        );
-        });
+        //);
+        //});
         
-      } else {
-        Alert.alert('Invalid username or password', '', [
-
-            {text: 'OK'},
-          ]);
-      }
-
+    }; 
+    else {Alert.alert('Invalid username or password', '', [
+      {text: 'OK'},
+    ]);
   }
+}*/
+const onSignInPressed =() => {
+  if (username.trim().length !== 0 && (password.trim().length !==0)) {
+    db.transaction((tx) => {
+      tx.executeSql('SELECT * FROM login WHERE username = ? AND password = ?', [username, password], (tx, results) => {
+        Alert.alert(String(results));
+        console.log(results);
+        if (results == "[object Object]") {
+          //console.log("Query completed");
+        //'IF EXISTS(SELECT * FROM login WHERE username = "Lin" and password = "Lin")',
+        //'BEGIN',
+        //'INSERT INTO login (username, password) VALUES (?,?)',
+        //'END',
+        //'SELECT * FROM login WHERE username = "Lin" and password = "Lin"',
+        //'INSERT INTO login (username, password) VALUES (?,?)',
+        //[newUsername, newPassword],
+        //(tx, results) => {
+          //console.log("completed");
+          //console.log('Accounts', results.rowsAffected);
+          //if (results.rowsAffected > 0) {
+          navigation.navigate("Menu") }
+          //}
+          else {
+            Alert.alert('Username or Password is not registered.');
+          }
+        }
+        
+      );
+      });
+      
+    } else {
+      Alert.alert('Invalid username or password', '', [
+
+          {text: 'OK'},
+        ]);
+    }
+
+}
+
 
   const onSignUpPressed =() => {
     db.transaction(tx => {
@@ -85,7 +153,9 @@ export default function SignInScreen({ navigation }) {
       (tx, results) => {
         console.log('Accounts', results.rowsAffected);
         if (results.rowsAffected > 0) {
-          Alert.alert('Successfully created an account');
+          if (newUsername.trim().length !== 0 && (newPassword.trim().length !==0)) {
+          Alert.alert('Successfully created an account'); }
+          else Alert.alert('Failed to create an account');
         } else Alert.alert('Failed to create an account');
       }
     );
