@@ -120,7 +120,21 @@ export default function CartScreen({ navigation }) {
         });
       };
 
-
+      const showItemsAndPrice = () => {
+        return items.map((item, price, index) =>
+        {
+          return (
+          <View>
+            {items.map(item => (
+              <View key={item.key}>
+                <Text>Item : {item.item}</Text>
+                <Text>Price : {item.price}</Text>
+              </View>
+            ))}
+          </View>
+          )
+        });
+      };
       
     return (
         
@@ -132,6 +146,9 @@ export default function CartScreen({ navigation }) {
             <Button title="Refresh" onPress={refreshItems} />
       {showItems()}
       {showPrice()}
+
+      {showItemsAndPrice()}
+
         <StatusBar style="auto" />
         </View>
     
