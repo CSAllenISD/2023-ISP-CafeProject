@@ -42,101 +42,34 @@ export default function SignInScreen({ navigation }) {
       );
     }
 
-  /*const onSignInPressed =() => {
-    if (username.trim().length !== 0 && (password.trim().length !==0)) {
-      const getCount = new Promise(function(resolve, reject) {
-        var countList = [] ;
-        let db = SQLite.openDatabase({name: 'test.db', createFromLocation : "~example.db", location: 'Library'}, false,false);
-      db.transaction((tx) => {
-        tx.executeSql('SELECT COUNT() FROM login WHERE username = ? AND password = ?', [username, password], (tx, results) => {
-          console.log(results);
-          var len = results.rows.length;
-        for (let i = 0; i < len; i++) {
-            let row = results.rows.item(i); 
-            employeeList.push(row.name);        
-        }
-        db.closeDatabase();
 
-        // resolve promise
-        resolve(employeeList)
-        });
-          //Alert.alert(String(results));
-          //print(results)
-          //let resultingArray = results.array
-          //if (countList.length > 0) {
-            //console.log("Query completed");
-          //'IF EXISTS(SELECT * FROM login WHERE username = "Lin" and password = "Lin")',
-          //'BEGIN',
-          //'INSERT INTO login (username, password) VALUES (?,?)',
-          //'END',
-          //'SELECT * FROM login WHERE username = "Lin" and password = "Lin"',
-          //'INSERT INTO login (username, password) VALUES (?,?)',
-          //[newUsername, newPassword],
-          //(tx, results) => {
-            //console.log("completed");
-            //console.log('Accounts', results.rowsAffected);
-            //if (results.rowsAffected > 0) {
-           // navigation.navigate("Menu") }
-            //}
-            //else {
-              //Alert.alert('Username or Password is not registered.');
-            //}
-      });
-
-          getCount.then(data => {
-            this.setState({
-                count:countList
-            })
-          })
-      });
-        if (countList.length > 0) {
-          navigation.navigate("Menu") 
-        }
-        else
-        {
-          Alert.alert('Username or Password is not registered.');
-        }
-          
-        //);
-        //});
-        
-    }; 
-    else {Alert.alert('Invalid username or password', '', [
-      {text: 'OK'},
-    ]);
-  }
-}*/
 const onSignInPressed =() => {
   if (username.trim().length !== 0 && (password.trim().length !==0)) {
     db.transaction((tx) => {
-      tx.executeSql('SELECT * FROM login WHERE username = ? AND password = ?', [username, password], (tx, results) => {
-        Alert.alert(String(results));
-        console.log(results);
-        if (results == "[object Object]") {
-          //console.log("Query completed");
-        //'IF EXISTS(SELECT * FROM login WHERE username = "Lin" and password = "Lin")',
-        //'BEGIN',
-        //'INSERT INTO login (username, password) VALUES (?,?)',
-        //'END',
-        //'SELECT * FROM login WHERE username = "Lin" and password = "Lin"',
-        //'INSERT INTO login (username, password) VALUES (?,?)',
-        //[newUsername, newPassword],
-        //(tx, results) => {
-          //console.log("completed");
-          //console.log('Accounts', results.rowsAffected);
-          //if (results.rowsAffected > 0) {
-          navigation.navigate("Menu") }
-          //}
-          else {
-            Alert.alert('Username or Password is not registered.');
-          }
+      tx.executeSql('SELECT * FROM login WHERE username = ? AND password = ?', [username, password], 
+      (tx, results) => {
+        if (results.rows.item(0).username == username && results.rows.item(0).password == password) {
+        navigation.navigate("Menu")
+        console.log(results.rows.item(0).username);
         }
+        Alert.alert('Login Successful  ', '', [
+
+          {text: 'OK'},
+        ])
+     
+          
+         },  
+         (tx, error) => {
+      
+        console.log(error);
+          
+      }
         
       );
       });
       
     } else {
-      Alert.alert('Invalid username or password', '', [
+      Alert.alert('Username or password field is empty', '', [
 
           {text: 'OK'},
         ]);
