@@ -94,12 +94,13 @@ export default function CartScreen({ navigation }) {
       };
       
       
-      const showItems = () => {
-        return items.map((item, index)  => {
+      const showItemsAndPrice = () => {
+        return items.map((item, price, index)  => {
           return (
             <View key={item} style={styles.row}>
              
               <Text>Item : {item.item}</Text>
+              <Text>Price : {item.price}</Text>
   
               <Button title='Delete' onPress={() => deleteItem(item.id)} />
      
@@ -109,32 +110,9 @@ export default function CartScreen({ navigation }) {
       };
 
  
-      const showPrice = () => {
-        return items.map((price, index)  => {
-          return (
-            <View key={price} style={styles.row}>
-              <Text>Price : {price.price}</Text>
-     
-            </View>
-          );
-        });
-      };
+    
 
-      const showItemsAndPrice = () => {
-        return items.map((item, price, index) =>
-        {
-          return (
-          <View>
-            {items.map(item => (
-              <View key={item.key}>
-                <Text>Item : {item.item}</Text>
-                <Text>Price : {item.price}</Text>
-              </View>
-            ))}
-          </View>
-          )
-        });
-      };
+     
       
     return (
         
@@ -144,9 +122,7 @@ export default function CartScreen({ navigation }) {
             
             <Button title="Add Item" onPress={addItem} />
             <Button title="Refresh" onPress={refreshItems} />
-      {showItems()}
-      {showPrice()}
-
+            
       {showItemsAndPrice()}
 
         <StatusBar style="auto" />
