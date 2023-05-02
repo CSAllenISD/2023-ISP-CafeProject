@@ -20,12 +20,12 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         width: '100%',
 
-        borderColor: 'black',
-        borderWidth: 1,
-        borderRadius: 5,
+        borderColor: 'lightblue',
+        borderWidth: 5,
+        borderRadius: 10,
 
         paddingHorizontal: 10,
-        marginVertical: 5,
+        marginVertical: 10,
     },
     input: {},
 });

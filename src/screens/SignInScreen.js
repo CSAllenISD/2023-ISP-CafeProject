@@ -8,6 +8,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as SQLite from 'expo-sqlite';
 import { StatusBar } from 'expo-status-bar';
 import {useEffect} from 'react';
+import { LinearGradient } from 'expo-linear-gradient';
+
 export default function SignInScreen({ navigation }) {
   const db = SQLite.openDatabase('MenuItems.db')
   const [username, setUsername] = useState('');
@@ -52,7 +54,7 @@ const onSignInPressed =() => {
         navigation.navigate("Menu")
         console.log(results.rows.item(0).username);
         }
-        Alert.alert('Login Successful  ', '', [
+        Alert.alert('Welcome ' + username, "", [
 
           {text: 'OK'},
         ])
@@ -116,10 +118,16 @@ const viewUser = () => {
   
 
   return (
-      <View style={styles.root}>
+      <View style={styles.main}>
+         <LinearGradient
+        colors={['#4c669f', 'cornflowerblue', 'cyan']}
+        start = {{x: 0.5, y:0.5}}
+        end = {{x: 0.6, y:1}}
+        style={styles.background}
+      />
           <Image
            source={Logo} 
-           style={[styles.logo, {height: height * 0.3}]} 
+           style={[styles.logo, {height: height * 0.4}]} 
            resizeMode="contain" 
            />
            <CustomInput 
@@ -133,6 +141,8 @@ const viewUser = () => {
            setValue={setPassword} 
            secureTextEntry={true}
            />
+               <CustomButton text="Sign In" onPress={onSignInPressed} />
+
            <CustomInput 
            placeHolder="New Username" 
            value={newUsername} 
@@ -145,19 +155,27 @@ const viewUser = () => {
            secureTextEntry={true}
            />
 
-    <CustomButton text="Sign In" onPress={onSignInPressed} />
     <CustomButton text="Sign Up" onPress={onSignUpPressed} />
       </View>
   )
 }
 const styles = StyleSheet.create({
-  root: {
+  main: {
       alignItems: 'center',
       padding: 80,
+      justifyContent: 'space-between',
+
   },
   logo: {
-      width: '60%',
+      width: '80%',
       maxWidth: 500,
       maxHeight: 200,
   },
+  background: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    height: 1000,
+  }
 });
