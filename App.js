@@ -6,6 +6,7 @@ import MenuScreen from './src/screens/MenuScreen';
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CheckoutScreen from './src/screens/CheckoutScreen';
+//import ConfirmationScreen from './src/screens/ConfirmationScreen';
 //import { styles } from './styles';
 const Stack = createNativeStackNavigator();
 
@@ -23,8 +24,8 @@ export default function App() {
           component={MenuScreen}
         />
         <Stack.Screen
-        name="Checkout"
-        component={CheckoutScreen}
+          name="Checkout"
+          component={CheckoutScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
