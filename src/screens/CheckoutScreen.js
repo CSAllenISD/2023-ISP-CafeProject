@@ -2,6 +2,8 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import * as SQLite from 'expo-sqlite';
 import {useState, useEffect} from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 export default function CartScreen({ navigation }) {
@@ -27,9 +29,10 @@ export default function CartScreen({ navigation }) {
     
           setIsLoading(false)
         },[]);
-        const refreshItems = () => {
+        const confirmOrder = () => {
             navigation.navigate("Menu")
             navigation.navigate("Checkout")
+            //navigation.navigate("Confirmation")
           };
           
       if (isLoading) {
@@ -121,7 +124,7 @@ export default function CartScreen({ navigation }) {
             <TextInput value={currentItem} placeholder="item" onChangeText={setCurrentItem} />
             
             <Button title="Add Item" onPress={addItem} />
-            <Button title="Refresh" onPress={refreshItems} />
+            <Button title="Confirm Order" onPress={confirmOrder} />
             
       {showItemsAndPrice()}
 
