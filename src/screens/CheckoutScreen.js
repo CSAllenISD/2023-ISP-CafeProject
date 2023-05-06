@@ -32,8 +32,8 @@ export default function CartScreen({ navigation }) {
         const confirmOrder = () => {
             navigation.navigate("Menu")
             navigation.navigate("Checkout")
-            //navigation.navigate("Confirmation")
-          };
+            navigation.navigate("Confirmation")
+            };
           
       if (isLoading) {
         return (
